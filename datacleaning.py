@@ -104,7 +104,7 @@ def custom_imputation(df, imputation_type="RDF"):
     return final_df
 
 
-class DataPrep():
+class DataCleaning():
     def __init__(self, file_upload=None, separator=",", row_threshold=None, col_threshold=None, special_character = None, action = None, ignore_columns=[], imputation_type="RDF"):
         if file_upload == None:
             print("Kindly upload a file")
