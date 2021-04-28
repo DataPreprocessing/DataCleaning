@@ -1,0 +1,5 @@
+include README
+include LICENSE
+include pyproject
+include requirements.txt
+recursive-include dataprep/img/ *
