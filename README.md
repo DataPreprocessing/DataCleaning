@@ -3,49 +3,75 @@
 <h1 align="center">DATA PREP</h1>
 
 ## Description
-<p>In any Machine Learning process, Data Preprocessing is the primary step wherein the information gets changed
-or Encoded, to bring it to such a state that now the machine can easily parse it. At the end of the day, the features
-of the information would now be able to be effectively deciphered by the calculation.</p>
+<p>In any Machine Learning process, Data Preprocessing is the primary step wherein the raw/unclean data are transformed 
+into cleaned data, So that in the later stage, machine learning algorithms can be applied. This python paackage make the 
+data preprocessing very easy in just 2 lines of code. All you have to do is just input a raw data(CSV file), this library
+will clean your data and return you the cleaned dataframe on which further you can apply feature engineering, 
+feature selection and modeling.
+
+- What this does?
+    * Cleans special character
+    * Removes duplicates
+    * Fixes abnormality in column names 
+    * Imputes the data (categorical & numerical)
+    
+</p>
 
 ## DataPrep
 
-<p>Data prep is a python package that is going to encounter all your data cleansing problems like removing unwanted 
-columns and rows to imputing all categorical and numerical values in a dataframe and delivers you a  <b>cleaned dataframe</b>  for your modeling purpose.</p>
+<p>Data prep is a python package for data preprocessing. This cleans the CSV file and returns the <b>cleaned data frame</b>. 
+It does the work of imputation, removing duplicates, replacing special characters, and many more.</p>
 
-## Parameters
+## How to use:
+
+Step 1:
+  Install the libaray
 
 ````python
-from data_prep import DataPrep
-
-DataPrep(file_uploaded='filename.csv', separator=",", row_threshold=None, col_threshold=None,
-         special_character=None, action=None, ignore_columns=None, imputation_type="RDF")
+pip install dataprep
 ````
+Step 2:
 
-| Parameter | Default Value | Limit | Example |
-| ------ | ------ | ------ | ------ |
-| file_uploaded | ***none*** | Have to provide a CSV file. | filename.csv |
-| separator | ***,*** | Have to provide the separator a csv file | ****;****
-| row_threshold Drive | ***none*** | 0 to 100 | 80 | 
-| col_threshold | ***none*** | 0 to 100 | 80 | 
-| special_character | check the list below | Any special characters | [ '$' , '?' ] | 
-| action | ***none*** | ***add*** or ***remove*** | add | 
-| ignore_columns | ***none*** | Have to provide list of column names <br> to ignoring the special characters operation. | [ 'column1', 'column2' ] | 
-| imputation_type | ***RDF*** | Have to select required imputation <br> ***RDF***, ***KNN***, ***mean***, ***median***, ***most_frequent***, ***constant*** . | KNN | 
-
-###  Data Cleaning and Imputation using Default Parameters
-
+  Import the library, and specify the path of the csv file. 
 ````python
-from data_prep import DataPrep
+from dataprep import DataPrep
 
 dp = DataPrep(file_uploaded='filename.csv')
 cleaned_df = dp.start_cleaning()
 ````
 
-## User optional parameters
+There are some optional parameters that you can specify as listed below,
+
+## Usage:
+
+````python
+from dataprep import DataPrep
+
+DataPrep(file_uploaded='filename.csv', separator=",", row_threshold=None, col_threshold=None,
+         special_character=None, action=None, ignore_columns=None, imputation_type="RDF")
+````
+
+## Parameters
+
+------
+
+| Parameter | Default Value | Limit | Example |
+| ------ | ------ | ------ | ------ |
+| file_uploaded | ***none*** | Provide a CSV file. | filename.csv |
+| separator | ***,*** | Separator used in csv file | ****;****
+| row_threshold | ***none*** | 0 to 100 | 80 | 
+| col_threshold | ***none*** | 0 to 100 | 80 | 
+| special_character | Check the list below |Sspecify the character <br> that is not listed in default_list (see below) | [ '$' , '?' ] | 
+| action | ***none*** | ***add*** or ***remove*** | add | 
+| ignore_columns | ***none*** | Provide list of column names <br> to ignoring the special characters operation. | [ 'column1', 'column2' ] | 
+| imputation_type | ***RDF*** | Select your preferred imputation <br> ***RDF***, ***KNN***, ***mean***, ***median***, ***most_frequent***, ***constant*** . | KNN | 
+
+
+## Examples of using parameters
 
 ### - Appending extra special characters to the existing default_list
 
-DEFAULT SPECIAL CHARACTERS
+The DEFAULT SPECIAL CHARACTERS included in the package are shown below,
 
 ````python
 default_list = ["!", '"', "#", "%", "&", "'", "(", ")",
@@ -53,59 +79,49 @@ default_list = ["!", '"', "#", "%", "&", "'", "(", ")",
                   "=", ">", "?", "@", "[", "\\", "]", "^", "_",
                   "`", "{", "|", "}", "~", "–", "//", "%*", ":/", ".;", "Ø", "§",'$',"£"]
 ````
+How to remove a special character, say for example if you want to remove "?" and "%".
+
+<i>Note:- Do not forget to give <b> action = 'remove' </b></i>
 
 ````python
-# ADDING EXTRA SPECIAL CHARACTERS
-special_character =['?', '%']
-````
-
-<i>Note:- Do not forget to give <b> action = 'add' </b></i>
-
-````python
-from data_prep import DataPrep
-
-dp = DataPrep(file_uploaded='filename.csv', special_character =['?', '%'], action='add')
-cleaned_df = dp.start_cleaning()
-````
-
-### - Removing special characters from existing default_list
-
-````python
-# REMOVING SPECIAL CHARACTERS FROM DEFAULT LIST
-special_character =['?', '%']
-````
-
-<p>Note:- Do not forget to give  action = 'remove' </p>
-
-````python
-from data_prep import DataPrep
+from dataprep import DataPrep
 
 dp = DataPrep(file_uploaded='filename.csv', special_character =['?', '%'], action='remove')
 cleaned_df = dp.start_cleaning()
 ````
+How to add a special character, say for example if you want to add "é" that is not in the default_list given above.
 
-### - Ignoring columns, for not to perform removing special character operation 
+<i>Note:- Do not forget to give <b> action = 'add' </b></i>
 
 ````python
-from data_prep import DataPrep
+from dataprep import DataPrep
 
-dp = DataPrep(file_uploaded='filename.csv', special_character =['?', '%'],
+dp = DataPrep(file_uploaded='filename.csv', special_character =['é'], action='add')
+cleaned_df = dp.start_cleaning()
+````
+
+### - Ignoring a particular columns and adding a special character
+Say for example, column named "timestamp" and "date" needs to be removed and a special character needs to be added 'é'
+
+````python
+from dataprep import DataPrep
+
+dp = DataPrep(file_uploaded='filename.csv', special_character =['é'],
               action='add', ignore_columns=['timestamp', 'date'])
 cleaned_df = dp.start_cleaning()
 ````
 
-### - Changing threshold for removing null rows and columns 
+### - Changing threshold to remove null rows/columns above this given threshold value
 
 ````python
-from data_prep import DataPrep
+from dataprep import DataPrep
 
 dp = DataPrep(file_uploaded='filename.csv', row_threshold=50, col_threshold=90)
 cleaned_df = dp.start_cleaning()
 ````    
 
-### - Numerical Columns available imputation methods
+### - Imputation methods available
 
-  - Available Imputation methods
   - RDF (RandomForest) -> (DEFAULT)
   - KNN (k-nearest neighbors)
   - mean
@@ -115,21 +131,10 @@ cleaned_df = dp.start_cleaning()
   
 ````python
 # Example for KNN imputation.
-from data_prep import DataPrep
+from dataprep import DataPrep
 
 dp = DataPrep(file_uploaded='filename.csv', imputation_type='KNN')
 cleaned_df = dp.start_cleaning()
 ````
 
-### - ALL AVAILABLE CUSTOM CHANGES
-
-````python
-from data_prep import DataPrep
-
-dp = DataPrep(file_uploaded='filename.csv', special_character =['?', '%'], action='add',
-              special_character =['?', '%'], action='remove', ignore_columns=['timestamp', 'date'],
-              row_threshold=50, col_threshold=90, imputation_type='KNN')
-cleaned_df = dp.start_cleaning()
-````
-
-<h2 align="center"> THANK YOU </h2>
+<h2 align="center"> --- THANK YOU, CHEERS --- </h2>
