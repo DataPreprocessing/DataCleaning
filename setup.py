@@ -10,8 +10,8 @@ with open(os.path.join(here, "README.md"), "r") as fh:
 setuptools.setup(
      name='data-cleaning',
      version='1.0',
-     author="Murali krishna mopi devi, Induraj P.Ramamurthy",
-     author_email="mopidevi@gmail.com, induraj.gandhian@yahoo.com",
+     author="Murali Krishna MOPIDEVI, Induraj P.Ramamurthy",
+     author_email="muralikrishna.mopidevi@gmail.com, induraj.gandhian@yahoo.com",
      description="An utility to clean the data and return you the cleaned data",
      long_description=long_description,
      long_description_content_type="text/markdown",

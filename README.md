@@ -41,7 +41,7 @@ Step 2:
 ````python
 from datacleaning import DataCleaning
 
-dp = DataCleaning(file_uploaded='filename.csv')
+dp = DataCleaning(file_upload='filename.csv')
 cleaned_df = dp.start_cleaning()
 ````
 
@@ -52,7 +52,7 @@ There are some optional parameters that you can specify as listed below,
 ````python
 from datacleaning import DataCleaning
 
-DataCleaning(file_uploaded='filename.csv', separator=",", row_threshold=None, col_threshold=None,
+DataCleaning(file_upload='filename.csv', separator=",", row_threshold=None, col_threshold=None,
          special_character=None, action=None, ignore_columns=None, imputation_type="RDF")
 ````
 
@@ -62,7 +62,7 @@ DataCleaning(file_uploaded='filename.csv', separator=",", row_threshold=None, co
 
 | Parameter | Default Value | Limit | Example |
 | ------ | ------ | ------ | ------ |
-| file_uploaded | ***none*** | Provide a CSV file. | filename.csv |
+| file_upload | ***none*** | Provide a CSV file. | filename.csv |
 | separator | ***,*** | Separator used in csv file | ****;****
 | row_threshold | ***none*** | 0 to 100 | 80 | 
 | col_threshold | ***none*** | 0 to 100 | 80 | 
@@ -91,7 +91,7 @@ How to remove a special character, say for example if you want to remove "?" and
 ````python
 from datacleaning import DataCleaning
 
-dp = DataCleaning(file_uploaded='filename.csv', special_character =['?', '%'], action='remove')
+dp = DataCleaning(file_upload='filename.csv', special_character =['?', '%'], action='remove')
 cleaned_df = dp.start_cleaning()
 ````
 How to add a special character, say for example if you want to add "é" that is not in the default_list given above.
@@ -101,7 +101,7 @@ How to add a special character, say for example if you want to add "é" that is 
 ````python
 from datacleaning import DataCleaning
 
-dp = DataCleaning(file_uploaded='filename.csv', special_character =['é'], action='add')
+dp = DataCleaning(file_upload='filename.csv', special_character =['é'], action='add')
 cleaned_df = dp.start_cleaning()
 ````
 
@@ -111,7 +111,7 @@ Say for example, column named "timestamp" and "date" needs to be removed and a s
 ````python
 from datacleaning import DataCleaning
 
-dp = DataCleaning(file_uploaded='filename.csv', special_character =['é'],
+dp = DataCleaning(file_upload='filename.csv', special_character =['é'],
               action='add', ignore_columns=['timestamp', 'date'])
 cleaned_df = dp.start_cleaning()
 ````
@@ -121,7 +121,7 @@ cleaned_df = dp.start_cleaning()
 ````python
 from datacleaning import DataCleaning
 
-dp = DataCleaning(file_uploaded='filename.csv', row_threshold=50, col_threshold=90)
+dp = DataCleaning(file_upload='filename.csv', row_threshold=50, col_threshold=90)
 cleaned_df = dp.start_cleaning()
 ````    
 
@@ -138,7 +138,7 @@ cleaned_df = dp.start_cleaning()
 # Example for KNN imputation.
 from datacleaning import DataCleaning
 
-dp = DataCleaning(file_uploaded='filename.csv', imputation_type='KNN')
+dp = DataCleaning(file_upload='filename.csv', imputation_type='KNN')
 cleaned_df = dp.start_cleaning()
 ````
 
