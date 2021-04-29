@@ -1,4 +1,4 @@
-![data-cleaning](https://github.com/DataPreprocessing/DataPrep/blob/main/img/datacleaning.png) img[alt=data-cleaning] { width: 100%; }
+![data-cleaning](https://github.com/DataPreprocessing/DataPrep/blob/main/img/datacleaning.png | width=100%)
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/data-cleaning)
 ![PyPI - License](https://img.shields.io/pypi/l/data-cleaning)
