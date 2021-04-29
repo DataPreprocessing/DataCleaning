@@ -24,7 +24,7 @@ feature selection and modeling.
 
 ## Data Cleaning
 
-<p>Data prep is a python package for data preprocessing. This cleans the CSV file and returns the <b>cleaned data frame</b>. 
+<p>Data-cleaning is a python package for data preprocessing. This cleans the CSV file and returns the <b>cleaned data frame</b>. 
 It does the work of imputation, removing duplicates, replacing special characters, and many more.</p>
 
 ## How to use:
@@ -39,9 +39,9 @@ Step 2:
 
   Import the library, and specify the path of the csv file. 
 ````python
-from dataprep import DataPrep
+from datacleaning import DataCleaning
 
-dp = DataPrep(file_uploaded='filename.csv')
+dp = DataCleaning(file_uploaded='filename.csv')
 cleaned_df = dp.start_cleaning()
 ````
 
@@ -50,9 +50,9 @@ There are some optional parameters that you can specify as listed below,
 ## Usage:
 
 ````python
-from dataprep import DataPrep
+from datacleaning import DataCleaning
 
-DataPrep(file_uploaded='filename.csv', separator=",", row_threshold=None, col_threshold=None,
+DataCleaning(file_uploaded='filename.csv', separator=",", row_threshold=None, col_threshold=None,
          special_character=None, action=None, ignore_columns=None, imputation_type="RDF")
 ````
 
@@ -89,9 +89,9 @@ How to remove a special character, say for example if you want to remove "?" and
 <i>Note:- Do not forget to give <b> action = 'remove' </b></i>
 
 ````python
-from dataprep import DataPrep
+from datacleaning import DataCleaning
 
-dp = DataPrep(file_uploaded='filename.csv', special_character =['?', '%'], action='remove')
+dp = DataCleaning(file_uploaded='filename.csv', special_character =['?', '%'], action='remove')
 cleaned_df = dp.start_cleaning()
 ````
 How to add a special character, say for example if you want to add "é" that is not in the default_list given above.
@@ -99,9 +99,9 @@ How to add a special character, say for example if you want to add "é" that is 
 <i>Note:- Do not forget to give <b> action = 'add' </b></i>
 
 ````python
-from dataprep import DataPrep
+from datacleaning import DataCleaning
 
-dp = DataPrep(file_uploaded='filename.csv', special_character =['é'], action='add')
+dp = DataCleaning(file_uploaded='filename.csv', special_character =['é'], action='add')
 cleaned_df = dp.start_cleaning()
 ````
 
@@ -109,9 +109,9 @@ cleaned_df = dp.start_cleaning()
 Say for example, column named "timestamp" and "date" needs to be removed and a special character needs to be added 'é'
 
 ````python
-from dataprep import DataPrep
+from datacleaning import DataCleaning
 
-dp = DataPrep(file_uploaded='filename.csv', special_character =['é'],
+dp = DataCleaning(file_uploaded='filename.csv', special_character =['é'],
               action='add', ignore_columns=['timestamp', 'date'])
 cleaned_df = dp.start_cleaning()
 ````
@@ -119,9 +119,9 @@ cleaned_df = dp.start_cleaning()
 ### - Changing threshold to remove null rows/columns above this given threshold value
 
 ````python
-from dataprep import DataPrep
+from datacleaning import DataCleaning
 
-dp = DataPrep(file_uploaded='filename.csv', row_threshold=50, col_threshold=90)
+dp = DataCleaning(file_uploaded='filename.csv', row_threshold=50, col_threshold=90)
 cleaned_df = dp.start_cleaning()
 ````    
 
@@ -136,10 +136,10 @@ cleaned_df = dp.start_cleaning()
   
 ````python
 # Example for KNN imputation.
-from dataprep import DataPrep
+from datacleaning import DataCleaning
 
-dp = DataPrep(file_uploaded='filename.csv', imputation_type='KNN')
+dp = DataCleaning(file_uploaded='filename.csv', imputation_type='KNN')
 cleaned_df = dp.start_cleaning()
 ````
 
-<h2 align="center"> --- THANK YOU, CHEERS --- </h2>
+<h2 align="center"> >> THANK YOU << </h2>
