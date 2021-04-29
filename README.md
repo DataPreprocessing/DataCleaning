@@ -1,7 +1,13 @@
-<p align="center"><img src="https://github.com/DataPreprocessing/DataPrep/blob/main/img/DataPrep.png"></p>
+![data-cleaning](https://github.com/DataPreprocessing/DataPrep/blob/main/img/datacleaning.png) 
+img[alt=data-cleaning] { width: 100%; }
 
-<h1 align="center">DATA PREP</h1>
 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/data-cleaning)
+![PyPI - License](https://img.shields.io/pypi/l/data-cleaning)
+![PyPI](https://img.shields.io/pypi/v/data-cleaning)
+![GitHub repo size](https://img.shields.io/github/repo-size/DataPreprocessing/DataCleaning)
+
+<h1 align="center">DATA CLEANING</h1>
 ## Description
 <p>In any Machine Learning process, Data Preprocessing is the primary step wherein the raw/unclean data are transformed 
 into cleaned data, So that in the later stage, machine learning algorithms can be applied. This python paackage make the 
@@ -28,7 +34,7 @@ Step 1:
   Install the libaray
 
 ````python
-pip install dataprep
+pip install data-cleaning
 ````
 Step 2:
 
