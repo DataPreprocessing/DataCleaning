@@ -1,6 +1,5 @@
-![data-cleaning](https://github.com/DataPreprocessing/DataPrep/blob/main/img/datacleaning.png) 
-img[alt=data-cleaning] { width: 100%; }
 
+<img src="https://github.com/DataPreprocessing/DataCleaning/blob/mopidevimu/img/datacleaning.png" width="100%"/>
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/data-cleaning)
 ![PyPI - License](https://img.shields.io/pypi/l/data-cleaning)
@@ -23,7 +22,7 @@ feature selection and modeling.
     
 </p>
 
-## DataPrep
+## Data Cleaning
 
 <p>Data prep is a python package for data preprocessing. This cleans the CSV file and returns the <b>cleaned data frame</b>. 
 It does the work of imputation, removing duplicates, replacing special characters, and many more.</p>
